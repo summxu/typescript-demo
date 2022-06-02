@@ -38,8 +38,22 @@ export default () => {
   let tempNum = restFunc(1, 2, 3, 4, 5, 6, 7, 8, 0, 9)
   // console.log(tempNum)
 
-  // any
-  let a: any
-  a = '123'
-  a = ['123']
+  // any 参数的函数可以进行进一步的判断
+  let isNumberFun = (value: any): value is number => {
+    return true
+  }
+
+  // union 联合类型
+  const logFun = (value: string | number | null) => {
+    return value
+  }
+  const logReslut = logFun('123123')
+  // console.log(logReslut)
+
+  // enum 枚举类型（增加可读性）
+  enum Subject {
+    数学 = 100, 语文, 英语, 政治, 生物, 地理, 化学, 物理
+  }
+  let day = Subject.化学
+  // console.log(day)
 }
